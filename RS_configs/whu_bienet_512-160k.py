@@ -132,12 +132,9 @@ model = dict(
             2,
             3,
         ],
-        loss_decode=[dict(
+        loss_decode=dict(
             loss_weight=1, type='CrossEntropyLoss', use_sigmoid=False),
-            dict(
-                loss_weight=1, type='DiceLoss', use_sigmoid=False)],
         loss_rec=dict(
-            # type='mmdet.models.losses.L2Loss',
             type='L1SsimLoss',
             loss_weight=1.0),
         norm_cfg=dict(requires_grad=True, type='BN'),

@@ -22,7 +22,7 @@ data_preprocessor = dict(
         57.375,
     ],
     type='SegDataPreProcessor')
-data_root = '/HDD01/tangqian/data/airs-archive/'
+data_root = '../airs-archive/'
 dataset_type = 'AIRSDataset'
 default_hooks = dict(
     checkpoint=dict(
@@ -134,10 +134,7 @@ model = dict(
         ],
         loss_decode=dict(
             loss_weight=1, type='CrossEntropyLoss', use_sigmoid=False),
-        # loss_dice=dict(
-        #     loss_weight=0.5, type='DiceLoss', use_sigmoid=False),
         loss_rec=dict(
-            # type='mmdet.models.losses.L2Loss',
             type='L1SsimLoss',
             loss_weight=1.0),
         norm_cfg=dict(requires_grad=True, type='BN'),
@@ -183,7 +180,7 @@ test_dataloader = dict(
             img_path='test/image-split',
             img_path2='test/image_split_ave_aug',
             seg_map_path='test/label-split-mm'),
-        data_root='/HDD01/tangqian/data/airs-archive/',
+        data_root='../airs-archive/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='LoadImageOtherFromFile'),
@@ -221,7 +218,7 @@ train_dataloader = dict(
             img_path='train/image-split',
             img_path2='train/image_split_ave_aug',
             seg_map_path='train/label-split-mm'),
-        data_root='/HDD01/tangqian/data/airs-archive/',
+        data_root='../airs-archive/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='LoadImageOtherFromFile'),
@@ -310,7 +307,7 @@ val_dataloader = dict(
             img_path='val/image-split',
             img_path2='val/image_split_ave_aug',
             seg_map_path='val/label-split-mm'),
-        data_root='/HDD01/tangqian/data/airs-archive/',
+        data_root='../airs-archive/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(keep_ratio=True, scale=(

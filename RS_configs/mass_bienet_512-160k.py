@@ -134,8 +134,6 @@ model = dict(
         ],
         loss_decode=dict(
             loss_weight=1, type='CrossEntropyLoss', use_sigmoid=False),
-        # loss_dice=dict(
-        #     loss_weight=0.5, type='DiceLoss', use_sigmoid=False),
         loss_rec=dict(
             type='L1SsimLoss',
             loss_weight=1.0),
