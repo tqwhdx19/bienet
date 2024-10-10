@@ -42,3 +42,9 @@ CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/i
 CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/airs_bienet_512-160k.py 3
 ```
 
+**Acknowledgement**
+
+[BuildFormer](https://github.com/WangLibo1995/BuildFormer) 
+
+[mmsegmentation](https://github.com/open-mmlab/mmsegmentation) 
+
