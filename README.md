@@ -17,6 +17,8 @@ Please follow the installation guide for MMSegmentation to set up the required e
 
 [Inria aerial image dataset](https://project.inria.fr/aerialimagelabeling/)
 
+[Aerial imagery for roof segmentation (AIRS) datasett](https://www.airs-dataset.com/)
+
 
 Getting enhanced images:  
 
@@ -36,4 +38,7 @@ CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/m
 CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/inria_bienet_512-160k.py 3
 ```
 
-**Acknowledgement**
+```
+CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/airs_bienet_512-160k.py 3
+```
+
