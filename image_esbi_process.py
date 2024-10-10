@@ -69,7 +69,6 @@ def enhancement_strategy_building_integrity(input_path, input_label_path, output
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
         img_background = img * ((color_background_image / 255).astype(np.uint8))
-
         f_enhanced = cv2.convertScaleAbs(image_foreground, alpha=alpha_1, beta=beta)
         b_diminished = cv2.convertScaleAbs(img_background, alpha=alpha_2, beta=beta)
         img_enhanced = f_enhanced + b_diminished
