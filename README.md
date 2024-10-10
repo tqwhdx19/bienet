@@ -17,6 +17,8 @@ Please follow the installation guide for MMSegmentation to set up the required e
 
 [Inria aerial image dataset](https://project.inria.fr/aerialimagelabeling/)
 
+[Aerial imagery for roof segmentation (AIRS) datasett](https://www.airs-dataset.com/)
+
 
 Getting enhanced images:  
 
