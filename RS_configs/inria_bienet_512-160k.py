@@ -22,8 +22,8 @@ data_preprocessor = dict(
         57.375,
     ],
     type='SegDataPreProcessor')
-data_root = '../Datasets/'
-dataset_type = 'WHUDataset'
+data_root = '../AerialImageDataset/'
+dataset_type = 'InriaDataset'
 default_hooks = dict(
     checkpoint=dict(
         by_epoch=False,
@@ -132,12 +132,11 @@ model = dict(
             2,
             3,
         ],
-        loss_decode=[dict(
+        loss_decode=dict(
             loss_weight=1, type='CrossEntropyLoss', use_sigmoid=False),
-            dict(
-                loss_weight=1, type='DiceLoss', use_sigmoid=False)],
+        # loss_dice=dict(
+        #     loss_weight=0.5, type='DiceLoss', use_sigmoid=False),
         loss_rec=dict(
-            # type='mmdet.models.losses.L2Loss',
             type='L1SsimLoss',
             loss_weight=1.0),
         norm_cfg=dict(requires_grad=True, type='BN'),
@@ -177,13 +176,13 @@ randomness = dict(seed=0)
 resume = False
 test_cfg = dict(type='TestLoop')
 test_dataloader = dict(
-    batch_size=3,
+    batch_size=1,
     dataset=dict(
         data_prefix=dict(
-            img_path='WHU/img_dir/test',
-            img_path2='WHU_aug/img_dir/test_2',
-            seg_map_path='WHU/ann_dir/test'),
-        data_root='../Datasets/',
+            img_path='val-split/images-split',
+            img_path2='val-split/images_split_aug',
+            seg_map_path='val-split/gt-split-mm'),
+        data_root='../AerialImageDataset/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='LoadImageOtherFromFile'),
@@ -194,7 +193,7 @@ test_dataloader = dict(
             dict(reduce_zero_label=False, type='LoadAnnotations'),
             dict(type='PackSegInputs'),
         ],
-        type='WHUDataset'),
+        type='InriaDataset'),
     num_workers=4,
     persistent_workers=True,
     sampler=dict(shuffle=False, type='DefaultSampler'))
@@ -205,6 +204,7 @@ test_evaluator = dict(
     ], type='IoUMetric')
 test_pipeline = [
     dict(type='LoadImageFromFile'),
+    dict(type='LoadImageOtherFromFile'),
     dict(keep_ratio=True, scale=(
         2048,
         512,
@@ -214,13 +214,13 @@ test_pipeline = [
 ]
 train_cfg = dict(max_iters=160000, type='IterBasedTrainLoop', val_interval=500)
 train_dataloader = dict(
-    batch_size=3,
+    batch_size=4,
     dataset=dict(
         data_prefix=dict(
-            img_path='WHU/img_dir/train',
-            img_path2='WHU_aug/img_dir/train_2',
-            seg_map_path='WHU/ann_dir/train'),
-        data_root='../Datasets/',
+            img_path='train/images-split',
+            img_path2='train/images_split_aug',
+            seg_map_path='train/gt-split-mm'),
+        data_root='../AerialImageDataset/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='LoadImageOtherFromFile'),
@@ -247,7 +247,7 @@ train_dataloader = dict(
             dict(type='PhotoMetricDistortion'),
             dict(type='PackSegInputs'),
         ],
-        type='WHUDataset'),
+        type='InriaDataset'),
     num_workers=8,
     persistent_workers=True,
     sampler=dict(shuffle=True, type='InfiniteSampler'))
@@ -277,6 +277,7 @@ train_pipeline = [
 tta_model = dict(type='SegTTAModel')
 tta_pipeline = [
     dict(backend_args=None, type='LoadImageFromFile'),
+    dict(backend_args=None, type='LoadImageOtherFromFile'),
     dict(
         transforms=[
             [
@@ -305,10 +306,10 @@ val_dataloader = dict(
     batch_size=4,
     dataset=dict(
         data_prefix=dict(
-            img_path='WHU/img_dir/val',
-            img_path2='WHU_aug/img_dir/val_2',
-            seg_map_path='WHU/ann_dir/val'),
-        data_root='../Datasets/',
+            img_path='val-split/images-split',
+            img_path2='val-split/images_split_aug',
+            seg_map_path='val-split/gt-split-mm'),
+        data_root='../AerialImageDataset/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(keep_ratio=True, scale=(
@@ -318,7 +319,7 @@ val_dataloader = dict(
             dict(reduce_zero_label=False, type='LoadAnnotations'),
             dict(type='PackSegInputs'),
         ],
-        type='WHUDataset'),
+        type='InriaDataset'),
     num_workers=4,
     persistent_workers=True,
     sampler=dict(shuffle=False, type='DefaultSampler'))
@@ -336,4 +337,4 @@ visualizer = dict(
     vis_backends=[
         dict(type='LocalVisBackend'),
     ])
-work_dir = './work_dirs/whu-bienet-v2-160k'
+work_dir = './work_dirs/inria-bienet-v1-160k'
