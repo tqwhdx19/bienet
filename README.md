@@ -18,7 +18,9 @@ Please follow the installation guide for MMSegmentation to set up the required e
 [Inria aerial image dataset](https://project.inria.fr/aerialimagelabeling/)
 
 
-Getting enhanced images: Run image_esbi_process.py
+Getting enhanced images:  
+
+```python image_esbi_process.py ```
 
 **Training**
 
