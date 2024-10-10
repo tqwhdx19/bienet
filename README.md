@@ -12,5 +12,16 @@ Please follow the installation guide for MMSegmentation to set up the required e
 **DataPreprocess**
 
 [WHU Building Dataset](https://study.rsgis.whu.edu.cn/pages/download/building_dataset.html)
+
 [Massachusetts buildings dataset](https://www.kaggle.com/datasets/balraj98/massachusetts-buildings-dataset)
+
 [Inria aerial image dataset](https://project.inria.fr/aerialimagelabeling/)
+
+
+Getting enhanced images: Run image_esbi_process.py
+
+**Training**
+
+```
+CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh path*/whu_bienet_512-160k.py 3
+```
