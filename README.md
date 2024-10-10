@@ -36,3 +36,4 @@ CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/m
 CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/inria_bienet_512-160k.py 3
 ```
 
+**Acknowledgement**
