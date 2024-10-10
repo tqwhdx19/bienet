@@ -1,6 +1,7 @@
 cityscapesscripts
 -e git+https://github.com/openai/CLIP.git@main#egg=clip
 
+
 # for vpd model
 diffusers
 einops==0.3.0
