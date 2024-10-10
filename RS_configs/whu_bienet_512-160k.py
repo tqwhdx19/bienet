@@ -336,4 +336,4 @@ visualizer = dict(
     vis_backends=[
         dict(type='LocalVisBackend'),
     ])
-work_dir = './work_dirs/whu-bienet-v1-160k'
+work_dir = './work_dirs/whu-bienet-v0-160k'
