@@ -25,5 +25,14 @@ Getting enhanced images:
 **Training**
 
 ```
-CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh path*/whu_bienet_512-160k.py 3
+CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/whu_bienet_512-160k.py 3
 ```
+
+```
+CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/mass_bienet_512-160k.py 3
+```
+
+```
+CUDA_VISIBLE_DEVICES=0,1,2 bash tools/dist_train.sh **/mmseg-bienet/RS_configs/inria_bienet_512-160k.py 3
+```
+
