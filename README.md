@@ -9,3 +9,8 @@
 Please follow the installation guide for MMSegmentation to set up the required environment. For specific steps and details, please refer to the following link: [mmseg installation](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/get_started.md#installation)
 
 
+**DataPreprocess**
+
+[WHU Building Dataset](https://study.rsgis.whu.edu.cn/pages/download/building_dataset.html)
+[Massachusetts buildings dataset](https://www.kaggle.com/datasets/balraj98/massachusetts-buildings-dataset)
+[Inria aerial image dataset](https://project.inria.fr/aerialimagelabeling/)
